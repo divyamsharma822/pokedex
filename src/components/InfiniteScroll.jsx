@@ -70,7 +70,7 @@ const InfiniteScroll = () => {
             </div>
             <div>
                 {(isLoading || isFetching) && (
-                    <div className='pokemonName w-full text-center text-2xl text-[#ffffff] font-bold'>
+                    <div className='loader'>
                         LOADING...
                     </div>
                 )}

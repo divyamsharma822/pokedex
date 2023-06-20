@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { bookmark, bookmarked } from "../utils/bookmark";
 import { ReactComponent as Heart } from "../assets/bookmark.svg";
 import { ReactComponent as HeartFilled } from "../assets/filled.svg"
@@ -7,7 +7,7 @@ const Capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const Card = ({ pokemon, lastElementRef, data ,id,index}) => {
+const Card = ({ pokemon, lastElementRef, data ,id, index}) => {
     
     const [ flag , setFLag ] = useState(bookmarked(id));
 
@@ -30,7 +30,7 @@ const Card = ({ pokemon, lastElementRef, data ,id,index}) => {
                 className='object-contain w-full'
                 alt={pokemon.name}
             />
-            <div className='text-center pokemonName'> {Capitalize(pokemon.name)} </div>
+            <div className='font-bold text-center'> {Capitalize(pokemon.name)} </div>
             { flag && <HeartFilled className="absolute top-0 right-0 m-2 transition ease-in-out cursor-pointer fill-red-500 hover:scale-95 delay-50" /> }
             { !flag && <Heart className="absolute top-0 right-0 m-2 transition ease-in-out cursor-pointer hover:scale-95 delay-50" /> }
         </div>

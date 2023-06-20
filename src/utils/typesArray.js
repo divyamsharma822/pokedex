@@ -17,11 +17,35 @@ const typesArray = [
     },
     {
         type: "Ground",
-        css: "btn bg-[#e97333]",
+        css: "btn bg-[#e0c068]",
+    },
+    {
+        type: "Fire",
+        css: "btn bg-[#f08030]",
     },
     {
         type: "Ice",
         css: "btn bg-[#4bd2c1]",
+    },
+    {
+        type: "Grass",
+        css: "btn bg-[#8ad36d]",
+    },
+    {
+        type: "Bug",
+        css: "btn bg-[#a8b820]",
+    },
+    {
+        type: "Ghost",
+        css: "btn bg-[#705898]",
+    },
+    {
+        type: "Flying",
+        css: "btn bg-[#115e59]",
+    },
+    {
+        type: "Dragon",
+        css: "btn bg-[#8b7df1]",
     },
     {
         type: "Normal",

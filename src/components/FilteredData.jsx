@@ -1,15 +1,16 @@
 import React from "react";
 import { useQuery } from "react-query";
 import typesArray from "../utils/typesArray";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
 
 const FilteredData = () => {
     const navigate = useNavigate();
+
     let { type } = useParams();
 
-    const { isLoading, error, data, isFetching, refetch } = useQuery(
+    const { isLoading, error, data, isFetching } = useQuery(
         ["filteredData", type],
         ({ queryKey }) =>
             axios
@@ -27,31 +28,6 @@ const FilteredData = () => {
 
     return (
         <>
-            <div
-                className='text-center bg-[#526D82] text-2xl text-white py-3 cursor-pointer w-screen flex justify-between px-5'
-                onClick={() => navigate("/")}>
-                <div>PokeDex</div>
-                <div className='flex gap-2'>
-                    <Link
-                        to={"/"}
-                        className='navlink '
-                        onClick={() => navigate("/")}>
-                        Home
-                    </Link>
-                    <Link
-                        to={"/bookmarks"}
-                        className='navlink '
-                        onClick={() => navigate("/bookmarks")}>
-                        Bookmarks
-                    </Link>
-                    <Link
-                        to={"/search"}
-                        className='navlink '
-                        onClick={() => navigate("/search", { replace: true })}>
-                        Search
-                    </Link>
-                </div>
-            </div>
             <div className='flex flex-wrap justify-center py-3 m-3 gap-y-2'>
                 {typesArray.map(({ type, css }, index) => (
                     <span
@@ -87,9 +63,7 @@ const FilteredData = () => {
                     ))}
             </div>
             {(isLoading || isFetching) && (
-                <div className='pokemonName w-full text-center text-2xl text-[#ffffff] font-bold'>
-                    LOADING...
-                </div>
+                <div className='loader'>LOADING...</div>
             )}
         </>
     );

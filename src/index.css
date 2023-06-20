@@ -7,11 +7,18 @@
         @apply text-sm text-slate-50 font-medium mr-2 px-2.5 py-0.5 rounded cursor-pointer hover:scale-[0.9];
     }
     .navlink{
-        @apply border-2 rounded-sm text-white p-2 text-sm
+        @apply border-2 rounded-sm text-white p-1 md:p-2 text-sm
+    }
+    .loader{
+        @apply w-full text-center text-2xl text-[#ffffff] font-bold
     }
 }
 
 body {
     background-color: #27374d;
     font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }

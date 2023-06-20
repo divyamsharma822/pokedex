@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Bookmarks from "./Bookmarks";
+import FilteredData from "./FilteredData";
 import InfiniteScroll from "./InfiniteScroll";
 import Search from "./Search";
 
@@ -15,8 +16,8 @@ function App() {
 
     return (
         <div className='flex flex-col items-center h-screen'>
-            <div className='text-center bg-[#526D82] text-2xl text-white py-3 cursor-pointer w-screen flex justify-between px-5'>
-                <div>PokeDex</div>
+            <div className='text-center bg-[#526D82] text-2xl text-white py-3 cursor-pointer w-screen flex justify-between items-center px-5'>
+                <div className="text-[18px] sm:text-[24px]" onClick={() => navigate("/")}>PokeDex</div>
                 <div className='flex gap-2'>
                     <div className='navlink' onClick={() => navigate("/")}>
                         Home
@@ -60,6 +61,7 @@ function App() {
                     element={<Search searchTerm={searchTerm} />}
                 />
                 <Route path='/bookmarks' element={<Bookmarks />} />
+                <Route path='/filter/:type' element={<FilteredData />} />
                 <Route path='/*' element={<InfiniteScroll />} />
             </Routes>
         </div>

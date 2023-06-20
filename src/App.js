@@ -9,7 +9,7 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path='/*' element={<Home />} />
-                <Route path='/filter/:type' element={<FilteredData />} />
+                {/* <Route path='/filter/:type' element={<FilteredData />} /> */}
             </Routes>
         </Router>
     );

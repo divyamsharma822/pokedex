@@ -26,27 +26,30 @@ const Bookmarks = () => {
             promiseArray.push(promise);
         });
         await Promise.all(promiseArray).then(function (values) {
-            console.log(values);
             setData(values);
             setLoading(false);
         });
     };
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className='mt-2 loader'>LOADING...</div>;
 
     return (
-        <div
-            className='grid self-center grid-cols-2 gap-2 mt-3 content lg:grid-cols-3 xl:grid-cols-4 sm:w-3/4 justify-items-center'>
-            {data?.map(({ data }, index) => (
-                <Card
-                    pokemon={{ name: data.name }}
-                    index={index}
-                    id={JSON.stringify(data.id)}
-                    data={data}
-                    key={data.id}
-                />
-            ))}
-        </div>
+        <>
+            {data?.length === 0 && (
+                <div className='mt-2 loader'>No Bookmarks Found!</div>
+            )}
+            <div className='grid self-center grid-cols-2 gap-2 mt-3 content lg:grid-cols-3 xl:grid-cols-4 sm:w-3/4 justify-items-center'>
+                {data?.map(({ data }, index) => (
+                    <Card
+                        pokemon={{ name: data.name }}
+                        index={index}
+                        id={JSON.stringify(data.id)}
+                        data={data}
+                        key={data.id}
+                    />
+                ))}
+            </div>
+        </>
     );
 };
 
