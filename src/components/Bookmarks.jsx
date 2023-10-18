@@ -31,7 +31,7 @@ const Bookmarks = () => {
         });
     };
 
-    if (isLoading) return <div className='mt-2 loader'>LOADING...</div>;
+    if (isLoading) return <div className='mt-2 loader'>Loading...</div>;
 
     return (
         <>
