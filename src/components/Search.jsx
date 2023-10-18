@@ -21,12 +21,12 @@ const Search = ({ searchTerm }) => {
         <>
             {(isLoading || isFetching) && (
                 <div className='mt-3 text-center text-slate-100'>
-                    LOADING...
+                    Loading
                 </div>
             )}
             {error && (
                 <div className='mt-3 text-center text-slate-100'>
-                    Not Found any matches
+                    No matches found
                 </div>
             )}
             {data?.id && (
